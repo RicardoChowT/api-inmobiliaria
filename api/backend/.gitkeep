@@ -1,0 +1,8 @@
+cd api\frontend
+echo. > .gitkeep
+cd ..\backend
+echo. > .gitkeep
+cd ..\..
+git add api/frontend/.gitkeep api/backend/.gitkeep
+git commit -m "Forzar subida de carpetas frontend y backend con .gitkeep"
+git push
