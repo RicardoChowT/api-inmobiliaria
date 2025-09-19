@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alquilar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href='https://meyerweb.com/eric/tools/css/reset/reset.css'>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/comprar.css">
+</head>
+<body>
+    <nav>
+        
+    </nav>
+    <main>
+        <div id="loader" style="display: none;">
+            <img src="https://media2.giphy.com/media/uIJBFZoOaifHf52MER/200w.gif?cid=6c09b952f7kaf2iy2irrdp0s9p4zjisc3sih3pyk20srj7w9&ep=v1_gifs_search&rid=200w.gif&ct=g" alt="Loading">
+        </div>
+        <section id="section-form">
+            <form id="searchForm" action="#">
+                <label for="location">Elige la ubicación donde deseas alquilar:</label>
+                <select name="location" id="location">
+                    <option value="es">España</option>
+                    <option value="eu">Europa</option>
+                    <option value="ww">Resto del mundo</option>
+                </select><br>
+            
+                <label for="tipo">Tipo de vivienda:</label>
+                <select name="tipo" id="tipo">
+                    <option value="1">Villa</option>
+                    <option value="2">Piso</option>
+                    <option value="3">Apartamento</option>
+                </select><br><br>
+            
+                <input type="submit" id="searchBtn" value="BUSCAR">
+            </form>
+            
+            <div id="status"></div>
+        </section>
+        <section id="images"></section>
+    </main>
+    <footer></footer>
+    <script type="module" src="js/alquilar.js"></script>
+    
+    <script src="https://kit.fontawesome.com/3c6af8f2d9.js" crossorigin="anonymous"></script>
+    <script src="js/button-menu.js"></script>
+</body>
+</html>

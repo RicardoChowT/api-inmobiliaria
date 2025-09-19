@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intranet</title>
+    <!-- Fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Estilos CSS -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/intranet.css">
+</head>
+<body>
+    <!-- Barra de Navegación -->
+    <nav>
+        <div id="alert-message" class="alert" style="display: none;"></div>
+        <h1>Intranet Corporativa</h1>
+        <!-- Menú (puedes personalizar con botones o enlaces) -->
+        <ul class="menu">
+            <li><a href="#" id="show-login">Iniciar Sesión</a></li>
+            <li><a href="#" id="show-register">Registrarse</a></li>
+        </ul>
+    </nav>
+
+    <!-- Contenido Principal -->
+    <main>
+        <!-- Sección de Inicio de Sesión -->
+        <section id="login-section">
+            <h2>Iniciar Sesión</h2>
+            <form id="loginForm">
+                <label for="login-username">Usuario:</label>
+                <input type="text" id="login-username" name="login-username" required>
+                
+                <label for="login-password">Contraseña:</label>
+                <input type="password" id="login-password" name="login-password" required>
+                
+                <button type="submit">Iniciar Sesión</button>
+            </form>
+            <div id="login-status"></div>
+            <p>¿No tienes una cuenta? <a href="#" id="show-register">Regístrate aquí</a></p>
+        </section>
+
+        <!-- Sección de Registro -->
+        <section id="register-section" style="display: none;">
+            <h2>Registro de Empleados</h2>
+            <form id="registerForm">
+                <label for="register-username">Usuario:</label>
+                <input type="text" id="register-username" name="register-username" required>
+                
+                <label for="register-password">Contraseña:</label>
+                <input type="password" id="register-password" name="register-password" required>
+                
+                <label for="register-email">Correo Electrónico:</label>
+                <input type="email" id="register-email" name="register-email" required>
+                
+                <button type="submit">Registrarse</button>
+            </form>
+            <div id="register-status"></div>
+            <p>¿Ya tienes una cuenta? <a href="#" id="show-login">Inicia sesión aquí</a></p>
+        </section>
+
+        <!-- Sección de Contenido Principal (tras inicio de sesión) -->
+        <section id="content-section" style="display: none;">
+            <h2>Bienvenido a la Intranet</h2>
+            <p>Contenido exclusivo para empleados.</p>
+
+            <!-- Dashboard -->
+            <section id="dashboard" style="display: none;">
+                <h3>📊 Dashboard</h3>
+                <p>Estadísticas de la empresa.</p>
+                <!-- Aquí puedes agregar gráficos o tablas dinámicas -->
+            </section>
+
+            <!-- Calendario Corporativo -->
+            <section id="calendar" style="display: none;">
+                <h3>📅 Calendario Corporativo</h3>
+                <p>Eventos y reuniones programadas.</p>
+                <!-- Aquí puedes integrar un calendario interactivo -->
+            </section>
+
+            <!-- Gestión de Documentos -->
+            <section id="documents" style="display: none;">
+                <h3>📄 Gestión de Documentos</h3>
+                <p>Sube y descarga documentos internos.</p>
+                <!-- Aquí puedes agregar formularios para subir archivos -->
+            </section>
+
+            <!-- Chat Interno -->
+            <section id="internal-chat" style="display: none;">
+                <h3>💬 Chat Interno</h3>
+                <p>Comunicación entre empleados.</p>
+                <!-- Aquí puedes integrar un sistema de chat -->
+            </section>
+
+            <!-- Buscador Interno -->
+            <section id="search-bar" style="display: none;">
+                <h3>🔍 Buscador Interno</h3>
+                <p>Busca documentos y empleados rápidamente.</p>
+                <!-- Aquí puedes agregar un campo de búsqueda -->
+                <input type="text" id="search-input" placeholder="Buscar...">
+                <button id="search-button">Buscar</button>
+            </section>
+
+            <!-- Herramientas Externas -->
+            <section id="external-tools" style="display: none;">
+                <h3>⚙️ Herramientas Externas</h3>
+                <p>Integraciones con ERP, CRM y otras plataformas.</p>
+                <!-- Aquí puedes listar herramientas externas -->
+            </section>
+        </section>
+    </main>
+
+    <!-- Pie de Página -->
+    <footer>
+        <p>&copy; 2023 Intranet Corporativa. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script type="module" src="js/intranet.js"></script>
+    <script src="https://kit.fontawesome.com/3c6af8f2d9.js" crossorigin="anonymous"></script>
+    <script src="js/button-menu.js"></script>
+</body>
+</html>

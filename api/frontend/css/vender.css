@@ -1,0 +1,351 @@
+*{
+    box-sizing: border-box;
+}
+html, body{
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
+}
+#loader {
+    position: fixed; /* Hacer que el loader se posicione en relación con la ventana del navegador */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999; /* Asegurarse de que el loader esté en la parte superior de otros elementos */
+    display: flex; /* Usar flexbox para centrar el gif de carga */
+    justify-content: center; /* Centrar el contenido horizontalmente */
+    align-items: center; /* Centrar el contenido verticalmente */
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco con un poco de transparencia */
+}
+
+
+
+
+/*#loader{
+    width: 100%;
+    place-content: center;
+}
+#loader img{
+    width: 100%;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+}*/
+
+#mobile-menu{
+    display: none;
+}
+#header{
+    background-color:#1E0342 ;
+    width: 6.25rem;
+    position: relative;
+    
+}
+.mobile-menu-button{
+    display: flex;
+    color:#0E46A3 ;
+    position: absolute;
+    font-size: 1.125rem;
+    top: 0.625rem;
+    right: 1.375rem;
+}
+#mobile-menu{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color:#0E46A3;
+    height: auto;
+    height: 100vh;
+    font-size: 1.5rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    display: none;
+    z-index: 1000;
+}
+#mobile-menu ul{
+    display: block;
+    
+}
+#mobile-menu li {
+    text-decoration: none;
+    color: #0E46A3;
+    margin-bottom: 50px;
+    
+}
+#mobile-menu a{
+    text-decoration: none;
+    color: #1E0342;
+    cursor: pointer;
+    
+}
+
+.close-menu-button{
+    display: flex;
+    color:#1E0342 ;
+    position: absolute;
+    font-size: 1.125rem;
+    top: 0.625rem;
+    right: 1.375rem;
+}
+.logo-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 2.5rem;
+}
+.logo-container img{
+    width: 5rem;
+    border-radius: 50%;
+    border: 0.25rem solid #9AC8CD ;
+
+}
+#desktop-menu{
+    width: 100%;
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+}
+#desktop-menu ul {
+    width: 100%;
+    padding: 40px;
+    display:flex ;
+    justify-content: space-between;
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+#desktop-menu a{
+    text-decoration: none;
+}
+
+#searchForm{
+    width: 100%;
+    height: auto;
+    background:#9AC8CD ;
+    padding: 2.5rem;
+    padding-top: 0.625rem;
+    margin-top: 0.625rem;
+    gap: 0.9375rem;
+}
+#section-form{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    height: 18.75rem;
+    background:#9AC8CD ;
+    padding: 0.625rem;
+    padding-top: 0.625rem;
+    margin-top: 2.5rem;
+    
+}
+#location{
+    display: block;
+    background-color: #fff;
+    width:100%;
+    border-radius: 0.3125rem;
+    height: 1.875rem;
+}
+#tipo{
+    display: block;
+    background-color: #fff;
+    width: 100%;
+    border-radius: 5px;
+    height: 30px;
+}
+#searchBtn{
+    width: 100%;
+    background: #0E46A3;
+    color: #fff;
+    border-radius: 5px;
+    padding: 5px;
+    letter-spacing: 5px;
+    
+}
+#habitaciones{
+    display: block;
+    background-color: #fff;
+    width: 100%;
+    border-radius: 5px;
+    height: 30px;
+}
+#ubicacion{
+    display: block;
+    background-color: #fff;
+    width: 100%;
+    border-radius: 5px;
+    height: 30px;
+}
+#anio{
+    display: block;
+    background-color: #fff;
+    width: 100%;
+    border-radius: 5px;
+    height: 30px;
+}
+
+
+main{
+    display:block;
+    width: 100%;
+    padding-top: 50px;
+    
+    
+}
+#images {
+    display:;
+    grid-template-columns: ;
+    grid-template-rows: auto ;
+    text-justify: auto;
+    gap:5px;
+}
+#images .tarjeta img {
+    width: 100%;
+    
+}
+img{
+    width: 100%;
+    height: auto;
+}
+
+
+footer {
+    background-color: #0E46A3;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    padding: 20px;   
+}
+.footer-logo-container img {
+    max-width: 90px;
+    height: auto;
+    border-radius: 50%;
+    border: 3px solid #fff;
+}
+.footer-logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #ffffff;   
+}
+.footer-icons-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:#ffffff;
+    padding: 20px;
+    gap: 10px;
+    border-bottom: ;
+}
+.footer-links-container {
+    width: 100%;
+    display: flex;
+    
+    justify-content: space-around;
+    list-style: none;
+    margin: 30px;
+}
+.footer-links-container a{
+    width: 100%;
+    padding: 0.625em;
+    color:#fff ;
+    
+    
+    text-decoration: none;
+    font-weight: 400;
+    text-align: center;
+    transition: 0.2s ease all;
+    font-size: 0.875em;
+    justify-content: space-between;
+    align-items: center;
+}
+#cookie-notice {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 20px;
+    background-color: #f5f5f5;
+    text-align: center;
+    display: none; /* Ocultamos el aviso por defecto */
+}
+
+
+
+
+ul {
+    display:block;
+    margin-left: px;
+}
+.footer-links-container a:hover {
+    background: #fff;
+    color: #000;
+    font-weight: 700;
+    font-size: 1.2em;
+}
+.derechos-reservados p{
+    color: #fff;
+    font-size: 0.8rem;
+    margin-bottom: 30px;
+}
+
+@media (min-width:768px) {
+    
+    .container {
+        max-width: 768px;
+    } 
+    .logo_container img{
+        width: 150px;
+    }  
+    
+    .close-menu-button{
+        display:none;
+    }
+    .mobile-menu-button{
+        display: flex;
+    }
+    
+
+}
+
+@media (min-width:1200px) {
+    .container {
+        max-width: 1200px;
+        
+    } 
+    .logo_container img{
+        width: 150px;
+    }
+    
+    #desktop-menu {
+        display: flex;
+    }
+    .close-menu-button{
+        display: none;
+    }
+    .mobile-menu-button{
+        display: none;
+    }
+    ul{
+        display: flex;
+    }
+    
+    #images {
+        display: grid;
+        grid-template-columns:  1fr 1fr;
+        grid-template-rows:1fr 1fr;
+    }
+}
