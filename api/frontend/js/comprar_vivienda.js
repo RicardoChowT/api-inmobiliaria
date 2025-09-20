@@ -121,123 +121,108 @@ formulario.addEventListener('submit', function(event) {
 });
 */
 
-
 import { creaFooter, creaMenu } from "./menu.js";
 
-creaMenu(document.querySelector('nav'));
-creaFooter(document.querySelector('footer'));
+creaMenu(document.querySelector("nav"));
+creaFooter(document.querySelector("footer"));
 
-const formulario = document.getElementById('searchForm');
-const mainElement = document.querySelector('main');
-let imagesSection = document.querySelector('#images');
+const formulario = document.getElementById("searchForm");
+const mainElement = document.querySelector("main");
+let imagesSection = document.querySelector("#images");
 
 if (!imagesSection) {
-    imagesSection = document.createElement('section');
-    imagesSection.id = 'images';
-    mainElement.appendChild(imagesSection);
+  imagesSection = document.createElement("section");
+  imagesSection.id = "images";
+  mainElement.appendChild(imagesSection);
 }
 
-formulario.addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevenir la recarga de la página al enviar el formulario
-    imagesSection.innerHTML = ''; // Limpia solo la sección de imágenes
+formulario.addEventListener("submit", function (event) {
+  event.preventDefault(); // Prevenir la recarga de la página al enviar el formulario
+  imagesSection.innerHTML = ""; // Limpia solo la sección de imágenes
 
-    const estatus = document.querySelector('#status');
-    const locale = document.querySelector("#location").value;
-    const tipo = document.querySelector("#tipo").value;
+  const estatus = document.querySelector("#status");
+  const locale = document.querySelector("#location").value;
+  const tipo = document.querySelector("#tipo").value;
 
-    fetch(`http://localhost:3001/comprar_vivienda/${locale}/${tipo}`)
-    .then(response => {
-        if (!response.ok) {
-            throw new Error(`Error de red: ${response.statusText}`);
-        }
-        return response.json();
+  //fetch(`http://localhost:3001/comprar_vivienda/${locale}/${tipo}`)
+  fetch(`/api/comprar_vivienda/${locale}/${tipo}`)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`Error de red: ${response.statusText}`);
+      }
+      return response.json();
     })
-    .then(procesada => {
-        estatus.classList.add('visible');
-        if (procesada.cantidad > 0) {
-            estatus.textContent = `Se han encontrado (${procesada.cantidad}) viviendas para tu búsqueda.`;
-            estatus.classList.remove('error');
-            estatus.classList.add('success');
+    .then((procesada) => {
+      estatus.classList.add("visible");
+      if (procesada.cantidad > 0) {
+        estatus.textContent = `Se han encontrado (${procesada.cantidad}) viviendas para tu búsqueda.`;
+        estatus.classList.remove("error");
+        estatus.classList.add("success");
 
-            procesada.msg.forEach(vivienda => {
-                let tarjeta = document.createElement('div');
-                tarjeta.classList.add('tarjeta'); // Añade una clase para estilo
+        procesada.msg.forEach((vivienda) => {
+          let tarjeta = document.createElement("div");
+          tarjeta.classList.add("tarjeta"); // Añade una clase para estilo
 
-                let titulo = document.createElement('h3');
-                titulo.textContent = vivienda.titulo;
+          let titulo = document.createElement("h3");
+          titulo.textContent = vivienda.titulo;
 
-                let parrafo = document.createElement('p');
-                parrafo.textContent = vivienda.parrafo;
-                    
+          let parrafo = document.createElement("p");
+          parrafo.textContent = vivienda.parrafo;
 
-                let imagen = document.createElement('img');
-                imagen.src = vivienda['ruta'];
-                imagen.alt = 'Imagen de la vivienda';
-                imagen.classList.add('imagen-vivienda'); // Añade una clase para estilos
+          let imagen = document.createElement("img");
+          imagen.src = vivienda["ruta"];
+          imagen.alt = "Imagen de la vivienda";
+          imagen.classList.add("imagen-vivienda"); // Añade una clase para estilos
 
-                let habitaciones = document.createElement('p');
-                habitaciones.textContent = `Habitaciones: ${vivienda.habitaciones}`;
+          let habitaciones = document.createElement("p");
+          habitaciones.textContent = `Habitaciones: ${vivienda.habitaciones}`;
 
-                let coordenadas = document.createElement('p');
-                coordenadas.textContent = `Coordenadas: ${vivienda.coordenadas}`;
+          let coordenadas = document.createElement("p");
+          coordenadas.textContent = `Coordenadas: ${vivienda.coordenadas}`;
 
-                let piscina = document.createElement('p');
-                piscina.textContent = `Piscina: ${vivienda.piscina ? 'Sí' : 'No'}`;
+          let piscina = document.createElement("p");
+          piscina.textContent = `Piscina: ${vivienda.piscina ? "Sí" : "No"}`;
 
-                let alquiler = document.createElement('p');
-                alquiler.textContent = `Alquiler: ${vivienda.alquiler ? 'Sí' : 'No'}`;
+          let alquiler = document.createElement("p");
+          alquiler.textContent = `Alquiler: ${vivienda.alquiler ? "Sí" : "No"}`;
 
-                let descripcion = document.createElement('p');
-                descripcion.textContent = `Descripción: ${vivienda.descripcion}`;
+          let descripcion = document.createElement("p");
+          descripcion.textContent = `Descripción: ${vivienda.descripcion}`;
 
-                let superficie = document.createElement('p');
-                superficie.textContent = `Superficie: ${vivienda.superficie}`;
+          let superficie = document.createElement("p");
+          superficie.textContent = `Superficie: ${vivienda.superficie}`;
 
-                let venta = document.createElement('p');
-                venta.textContent = `Venta: ${vivienda.venta ? 'Sí' : 'No'}`;
+          let venta = document.createElement("p");
+          venta.textContent = `Venta: ${vivienda.venta ? "Sí" : "No"}`;
 
-                // Añade los elementos a la tarjeta
-                tarjeta.appendChild(titulo);
-                tarjeta.appendChild(parrafo);
-                tarjeta.appendChild(imagen);
-                tarjeta.appendChild(habitaciones);
-                tarjeta.appendChild(coordenadas);
-                tarjeta.appendChild(piscina);
-                tarjeta.appendChild(alquiler);
-                tarjeta.appendChild(descripcion);
-                tarjeta.appendChild(superficie);
-                tarjeta.appendChild(venta);
+          // Añade los elementos a la tarjeta
+          tarjeta.appendChild(titulo);
+          tarjeta.appendChild(parrafo);
+          tarjeta.appendChild(imagen);
+          tarjeta.appendChild(habitaciones);
+          tarjeta.appendChild(coordenadas);
+          tarjeta.appendChild(piscina);
+          tarjeta.appendChild(alquiler);
+          tarjeta.appendChild(descripcion);
+          tarjeta.appendChild(superficie);
+          tarjeta.appendChild(venta);
 
-                // Añade la tarjeta a la sección de imágenes
-                imagesSection.appendChild(tarjeta);
-            });
-        } else {
-            estatus.textContent = 'No se ha encontrado resultados.';
-            estatus.classList.remove('success');
-            estatus.classList.add('error');
-        }
+          // Añade la tarjeta a la sección de imágenes
+          imagesSection.appendChild(tarjeta);
+        });
+      } else {
+        estatus.textContent = "No se ha encontrado resultados.";
+        estatus.classList.remove("success");
+        estatus.classList.add("error");
+      }
     })
-    .catch(error => {
-        estatus.textContent = `Error al realizar la búsqueda: ${error.message}`;
-        estatus.classList.remove('success');
-        estatus.classList.add('error');
-        console.error('Error al realizar la solicitud fetch:', error);
+    .catch((error) => {
+      estatus.textContent = `Error al realizar la búsqueda: ${error.message}`;
+      estatus.classList.remove("success");
+      estatus.classList.add("error");
+      console.error("Error al realizar la solicitud fetch:", error);
     });
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /*import { creaFooter, creaMenu } from "./menu.js";
 
@@ -399,11 +384,6 @@ formulario.addEventListener('submit', function(event) {
         });
 });*/
 
-
-
-
-
-
 /*formulario.addEventListener('submit', function(event) {
     console.log(event)
     event.preventDefault(); // Prevenir la recarga de la página al enviar el formulario
@@ -434,23 +414,6 @@ formulario.addEventListener('submit', function(event) {
         });
 });
 */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /*const formulario = document.querySelector('form')
 formulario.on('submit', (e)=>{

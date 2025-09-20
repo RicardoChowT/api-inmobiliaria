@@ -346,6 +346,12 @@ footer {
   background-color: #f5f5f5;
   text-align: center;
   display: none; /* Ocultamos el aviso por defecto */
+  gap: 5rem;
+}
+#accept-cookies {
+  background-color: #0e46a3;
+  color: #ffffff;
+  border-radius: 0.2rem;
 }
 ul {
   display: block;

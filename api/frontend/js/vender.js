@@ -1,5 +1,6 @@
 // Obtener viviendas publicadas
-fetch("http://localhost:3001/vender_vivienda?")
+//fetch("http://localhost:3001/vender_vivienda?")
+fetch("/api/vender_vivienda?")
   .then((response) => {
     if (!response.ok) {
       throw new Error(

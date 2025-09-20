@@ -157,6 +157,15 @@ body {
 }
 
 /* Estilos para los incisos */
+h2 {
+  background-color: #ffffff;
+  border-left: 5px solid #3498db;
+  color: #3498db;
+  padding: 15px 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
 .politica-inciso {
   background-color: #ffffff;
   border-left: 5px solid #3498db;
@@ -286,7 +295,7 @@ ul {
     width: 150px;
   }
   .close-menu-button {
-    display: none;
+    display: block;
   }
   .mobile-menu-button {
     display: flex;
@@ -319,7 +328,9 @@ ul {
 }
 @media (max-width: 1200px) {
   .tarjeta h2 {
-    display: none;
+    display: flex;
+    color: #3498db;
+    text-align: center;
   }
 }
 

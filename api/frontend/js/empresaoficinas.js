@@ -1,46 +1,43 @@
 import { creaFooter, creaMenu } from "./menu.js";
 
-creaMenu(document.querySelector('nav'))
-creaFooter(document.querySelector('footer'))
+creaMenu(document.querySelector("nav"));
+creaFooter(document.querySelector("footer"));
 
+const mainElement = document.querySelector("main");
+const loading = document.querySelector("#loader");
 
+if (mainElement && loading) {
+  const textSection = document.createElement("section");
+  textSection.id = "text";
+  mainElement.appendChild(textSection);
 
-const mainElement = document.querySelector('main')
-const loading = document.querySelector('#loader')
+  const imagesSection = document.createElement("section");
+  imagesSection.id = "images";
+  mainElement.appendChild(imagesSection);
 
-if(mainElement && loading){
+  //fetch('http://localhost:3001/empresaoficinas')
+  fetch("/api/empresaoficinas")
+    .then((info) => info.json())
+    .then((procesada) => {
+      loading.style.display = "none";
+      procesada.forEach((element) => {
+        let tarjeta = document.createElement("div");
+        let titulo = document.createElement("h2");
+        let parrafo = document.createElement("p");
+        let imagen = document.createElement("img");
 
-    const textSection = document.createElement('section')
-    textSection.id = 'text'
-    mainElement.appendChild(textSection)
+        titulo.innerHTML = element.titulo;
+        parrafo.innerHTML = element.parrafo;
+        imagen.src = element.ruta;
+        imagen.setAttribute("alt", element.alt);
 
-    const imagesSection = document.createElement('section')
-    imagesSection.id = 'images'
-    mainElement.appendChild(imagesSection)
+        tarjeta.classList.add("tarjeta");
 
-    fetch('http://localhost:3001/empresaoficinas')
-    .then(info => info.json())
-    .then(procesada =>{
+        tarjeta.appendChild(titulo);
+        tarjeta.appendChild(parrafo);
+        tarjeta.appendChild(imagen);
 
-        loading.style.display = 'none'
-        procesada.forEach(element => {
-            let tarjeta = document.createElement('div')
-            let titulo = document.createElement('h2')
-            let parrafo = document.createElement('p')
-            let imagen = document.createElement('img')
-
-            titulo.innerHTML = element.titulo
-            parrafo.innerHTML = element.parrafo
-            imagen.src = element.ruta
-            imagen.setAttribute('alt', element.alt)
-
-            tarjeta.classList.add('tarjeta')
-
-            tarjeta.appendChild(titulo)
-            tarjeta.appendChild(parrafo)
-            tarjeta.appendChild(imagen)
-
-            mainElement.appendChild(tarjeta)
-        })
-    })
+        mainElement.appendChild(tarjeta);
+      });
+    });
 }
