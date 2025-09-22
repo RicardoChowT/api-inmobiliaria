@@ -17,6 +17,7 @@ if (process.env.NODE_ENV === "production") {
     "http://localhost:3001",
     "https://change4canton.com", // REEMPLAZA con tu dominio real
     "https://www.change4canton.com", // REEMPLAZA con tu dominio real
+    "http://apiinmobiliaria-frontend-eyohvu-75e85e-72-60-45-226.traefik.me",
   ];
 
   app.use(
