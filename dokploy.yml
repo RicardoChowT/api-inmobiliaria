@@ -1,16 +1,31 @@
 applications:
   frontend:
     build:
-      dockerfile: Dockerfile # Dockerfile en raíz
+      dockerfile: Dockerfile # Este Dockerfile sirve tu frontend con Nginx
+      context: ./api/frontend
     port: 80
+    env: [] # No necesita variables
 
   backend:
     build:
-      context: api/backend
-    port: 3000
+      context: ./api/backend
+      dockerfile: Dockerfile
+    port: 3001
     env:
       - NODE_ENV=production
-      - DB_HOST=tu_host_db
-      - DB_USER=tu_usuario_db
-      - DB_PASSWORD=tu_contraseña_db
-      - DB_NAME=tu_nombre_db
+      - DB_HOST=db
+      - DB_USER=root
+      - DB_PASSWORD=Rjchow44/Tz
+      - DB_NAME=inmobiliariachowmolina
+
+  db:
+    image: mariadb:11
+    port: 3306
+    env:
+      - MYSQL_ROOT_PASSWORD=Rjchow44/Tz
+      - MYSQL_DATABASE=inmobiliariachowmolina
+    volumes:
+      - mariadb_data:/var/lib/mysql
+
+volumes:
+  mariadb_data:
