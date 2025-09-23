@@ -7,7 +7,7 @@ export const creaMenu = (elemento) => {
     <nav id="mobile-menu">
       <ul>
          <li><a href="comprar_vivienda.html">Comprar Vivienda</a> </li>
-         <li><a href="Alquilar.html">Alquilar</a> </li>
+         <li><a href="index.html">Alquilar</a> </li>
          <li><a href="Vender.html">Vender</a></li>
          <li><a href="empresahistoria.html">Empresa-Historia</a></li>
          <li><a href="empresaoficinas.html">Empresa-Oficinas</a></li>
@@ -21,7 +21,7 @@ export const creaMenu = (elemento) => {
    <nav id="desktop-menu">
       <ul>
       <li><a href="comprar_vivienda.html">Comprar Vivienda</a> </li>
-      <li><a href="Alquilar.html">Alquilar</a> </li>
+      <li><a href="index.html">Alquilar</a> </li>
       <li><a href="Vender.html">Vender</a></li>
       <li><a href="empresahistoria.html">Empresa-Historia</a></li>
       <li><a href="empresaoficinas.html">Empresa-Oficinas</a></li>

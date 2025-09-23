@@ -1,51 +1,39 @@
 version: "3.8"
 
 services:
+  frontend:
+    image: nginx:alpine
+    container_name: frontend-inmo
+    volumes:
+      - ./frontend:/usr/share/nginx/html
+      - ./frontend/nginx.conf:/etc/nginx/conf.d/default.conf
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.frontend.rule=Host(`change4canton.com`)"
+      - "traefik.http.routers.frontend.entrypoints=websecure"
+      - "traefik.http.routers.frontend.tls.certresolver=myresolver"
+    depends_on:
+      - api
+
   api:
-<<<<<<< HEAD
-    build: ./api
-    container_name: api-inmobiliaria
-    restart: always
-    env_file: ./api/.env
+    build: ./backend
+    container_name: api-inmo
     expose:
       - "3001"
-=======
-    build: .
-    container_name: api-inmobiliaria
-    restart: always
-    env_file: .env
-    ports:
-      - "3001:3001"
->>>>>>> b280c7d2202ae18a198e4b6060afdf62386be0ae
-    depends_on:
-      - db
+    env_file: ./backend/.env
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.services.api.loadbalancer.server.port=3001"
 
   db:
     image: mariadb:11
     container_name: mariadb-inmo
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD:
-      MYSQL_DATABASE: inmobiliaria
-    ports:
-      - "3306:3306"
+      MYSQL_ROOT_PASSWORD: Rjchow44/Tz
+      MYSQL_DATABASE: inmobiliariachowmolina
     volumes:
       - mariadb_data:/var/lib/mysql
 
-<<<<<<< HEAD
-  web:
-    image: nginx:latest
-    container_name: nginx-inmo
-    restart: always
-    ports:
-      - "80:80"
-    volumes:
-      - ./frontend:/usr/share/nginx/html:ro
-      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
-    depends_on:
-      - api
-
-=======
->>>>>>> b280c7d2202ae18a198e4b6060afdf62386be0ae
 volumes:
   mariadb_data:
