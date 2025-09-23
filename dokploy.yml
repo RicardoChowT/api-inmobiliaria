@@ -1,0 +1,16 @@
+applications:
+  frontend:
+    build:
+      dockerfile: Dockerfile # Dockerfile en raíz
+    port: 80
+
+  backend:
+    build:
+      context: api/backend
+    port: 3000
+    env:
+      - NODE_ENV=production
+      - DB_HOST=tu_host_db
+      - DB_USER=tu_usuario_db
+      - DB_PASSWORD=tu_contraseña_db
+      - DB_NAME=tu_nombre_db
