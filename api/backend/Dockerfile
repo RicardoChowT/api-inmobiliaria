@@ -4,11 +4,11 @@ FROM node:20-alpine
 WORKDIR /app
 
 # Copiar package.json e instalar dependencias
-COPY package*.json ./
+COPY api/backend/package*.json ./
 RUN npm install --only=production
 
-# Copiar el resto del código
-COPY . .
+# Copiar el resto del código del backend
+COPY api/backend/ ./
 
 # Exponer puerto
 EXPOSE 3001
