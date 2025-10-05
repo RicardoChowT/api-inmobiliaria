@@ -29,3 +29,6 @@ mariadb_data/
 # Editor
 .vscode/
 .idea/
+
+*.tar.gz
+*.zip
